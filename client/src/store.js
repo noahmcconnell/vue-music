@@ -16,7 +16,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     songs: [],
-    playlist: {}
+    playlist: {},
   },
   mutations: {
     setSongs(state, songs) {
@@ -31,6 +31,12 @@ export default new Vuex.Store({
       musicDB.get('/songs')
         .then(res => {
           commit('setSongs', res.data)
+        })
+    },
+    getPlaylists({ dispatch, commit }) {
+      musicDB.get('/playlists')
+      .then(res => { 
+          commit('setPlaylist', res.data[0])
         })
     },
     search({ dispatch, commit }, artist) {

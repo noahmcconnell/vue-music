@@ -52,6 +52,8 @@ export default {
     if (!this.songs) {
       this.$store.dispatch("getSongs");
     }
+
+      this.$store.dispatch("getPlaylists")
   },
   methods: {
     search(event) {
@@ -92,12 +94,10 @@ export default {
   height: 100%;
   background-image: repeating-radial-gradient(rgb(255, 0, 179) 10%, orange 15%, rgb(0, 217, 255) 20%)
 }
-
 .form{
   display: flex;
   justify-content: center
 }
-
 .font{
   display: flex;
   justify-content: center;
@@ -108,5 +108,4 @@ export default {
   display: flex;
   justify-content: center;
 }
-
 </style>
